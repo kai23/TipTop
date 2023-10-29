@@ -1,3 +1,5 @@
+
+import AutoGrowInput from 'components/AutogrowInput'
 import Bloc from 'components/Bloc'
 import PillButton from 'components/PillButton'
 import { useEffect, useState } from 'react'
@@ -50,6 +52,7 @@ export default function GalleryPage() {
 
 	const finalTax = hasOtherTax ? otherTax / 100 : tax.value
 	const finalTip = hasOtherTip ? otherTip / 100 : tip.value
+	const finalPrice = (price + price * finalTax + price * finalTip)
 
 	useEffect(() => {
 		async function getRate() {
@@ -111,12 +114,9 @@ export default function GalleryPage() {
 					<div className='flex flex-col items-center justify-center'>
 						<div className='flex items-center'>
 							<span className='text-3xl text-white'>$</span>
-							<input
-								className='w-[110px] border-0 bg-green-600 text-center text-3xl text-white'
-								placeholder='50'
-								type='number'
-								value={price === 0 ? '' : price}
-								onChange={event => setPrice(Number(event.target.value))}
+							<AutoGrowInput
+								price={price === 0 ? '' : `${price}`}
+								onPriceChange={setPrice}
 							/>
 						</div>
 						<p>
@@ -148,7 +148,7 @@ export default function GalleryPage() {
 					{hasOtherTax ? (
 						<div className='relative mt-2 flex w-full rounded border border-white'>
 							<input
-								className='w-full border-0 bg-green-600 indent-4 text-white'
+								className='w-full border-0 bg-green-600 indent-4 text-white focus:outline-none border-transparent focus:border-transparent focus:ring-0'
 								placeholder='50'
 								value={otherTax === 0 ? '' : otherTax}
 								onChange={event => setOtherTax(Number(event.target.value))}
@@ -183,7 +183,7 @@ export default function GalleryPage() {
 					{hasOtherTip ? (
 						<div className='relative mt-2 flex w-full rounded border border-white'>
 							<input
-								className='w-full border-0 bg-green-600 indent-4 text-white'
+								className='w-full border-0 bg-green-600 indent-4 text-white focus:outline-none border-transparent focus:border-transparent focus:ring-0'
 								placeholder='50'
 								value={otherTip === 0 ? '' : otherTip}
 								onChange={event => setOtherTip(Number(event.target.value))}
@@ -201,7 +201,7 @@ export default function GalleryPage() {
 				<div className='flex items-center'>
 					<span className='text-3xl text-white'>$</span>
 					<span className='text-6xl text-white'>
-						{(price + price * finalTax + price * finalTip)
+						{finalPrice
 							.toFixed(2)
 							.replace('.', ',')}
 					</span>
@@ -209,7 +209,7 @@ export default function GalleryPage() {
 				<p>
 					<span className='text-gray'>soit &nbsp;</span>
 					<span className='text-white'>
-						{convertDollarToEuro(price, rate)} €
+						{convertDollarToEuro(finalPrice, rate)} €
 					</span>
 				</p>
 			</footer>
