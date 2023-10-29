@@ -5,16 +5,16 @@ import PillButton from 'components/PillButton'
 import { useEffect, useState } from 'react'
 
 const NYC_TAXES: TipTax[] = [
-	{ name: '0%', value: 0 },
-	{ name: '4%', value: 0.04 },
-	{ name: '8%', value: 0.08 }
+	{ name: '0 %', value: 0 },
+	{ name: '4 %', value: 0.04 },
+	{ name: '8 %', value: 0.08 }
 ]
 const TIPS: TipTax[] = [
-	{ name: '0%', value: 0 },
-	{ name: '10%', value: 0.1 },
-	{ name: '15%', value: 0.15 },
-	{ name: '17%', value: 0.17 },
-	{ name: '20%', value: 0.2 }
+	{ name: '0 %', value: 0 },
+	{ name: '10 %', value: 0.1 },
+	{ name: '15 %', value: 0.15 },
+	{ name: '17 %', value: 0.17 },
+	{ name: '20 %', value: 0.2 }
 ]
 
 interface TipTax {
@@ -140,7 +140,7 @@ export default function GalleryPage() {
 							/>
 						))}
 						<PillButton
-							label='autre'
+							label='Autre'
 							selected={hasOtherTax}
 							onClick={() => setHasOtherTax(true)}
 						/>
@@ -174,7 +174,7 @@ export default function GalleryPage() {
 							/>
 						))}
 						<PillButton
-							label='autre'
+							label='Autre'
 							selected={hasOtherTip}
 							onClick={() => setHasOtherTip(true)}
 							className='basis-1/4'
