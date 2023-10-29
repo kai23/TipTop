@@ -25,12 +25,12 @@ export default function Input({
     return (
         <input
             ref={inputReference}
-            className="border-0 bg-green-600 text-center text-3xl text-white outline-none focus:ring-0"
+            className="w-[37px] border-0 bg-green-600 text-center text-3xl text-white outline-none focus:ring-0 m-0 p-0 self-start"
             placeholder='50'
             type='number'
             value={price === '0' ? '' : price}
             onChange={event => onPriceChange(Number(event.target.value))}
-            style={{ width: '5px', transition: 'width 0.2s' }}
+            style={{ transition: 'width 0.2s' }}
             autoFocus
         
         />

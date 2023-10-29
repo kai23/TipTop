@@ -19,7 +19,7 @@ export default function PillButton({
 			type='button'
 			className={twMerge(
 				cx(
-					'flex-1 justify-between rounded-md bg-green-700 py-2 text-center',
+					'flex-1 justify-between rounded-md bg-green-700 py-2 text-center font-medium',
 					className,
 					{
 						'bg-green-800': selected

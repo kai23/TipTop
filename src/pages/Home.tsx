@@ -104,7 +104,7 @@ export default function GalleryPage() {
 	}
 
 	return (
-		<div className='container flex min-h-screen flex-col justify-between'>
+		<div className='container flex min-h-screen flex-col justify-between poppins'>
 			<div className='flex flex-col items-center justify-between gap-6 p-5 text-white'>
 				<header className='poppins text-xl font-semibold text-white'>
 					How to pay at NYC
@@ -148,7 +148,7 @@ export default function GalleryPage() {
 					{hasOtherTax ? (
 						<div className='relative mt-2 flex w-full rounded border border-white'>
 							<input
-								className='w-full border-0 bg-green-600 indent-4 text-white focus:outline-none border-transparent focus:border-transparent focus:ring-0'
+								className='w-full border border-white rounded bg-green-600 indent-4 text-white focus:outline-none focus:border-white focus:ring-0'
 								placeholder='50'
 								value={otherTax === 0 ? '' : otherTax}
 								onChange={event => setOtherTax(Number(event.target.value))}
@@ -162,7 +162,7 @@ export default function GalleryPage() {
 				</Bloc>
 
 				{/* POURBOIRE */}
-				<Bloc title='Pourboires'>
+				<Bloc title='Pourboire'>
 					<div className='flex w-full flex-wrap items-center justify-between gap-2'>
 						{TIPS.map(t => (
 							<PillButton
@@ -183,7 +183,7 @@ export default function GalleryPage() {
 					{hasOtherTip ? (
 						<div className='relative mt-2 flex w-full rounded border border-white'>
 							<input
-								className='w-full border-0 bg-green-600 indent-4 text-white focus:outline-none border-transparent focus:border-transparent focus:ring-0'
+								className='w-full border border-white rounded bg-green-600 indent-4 text-white focus:outline-none focus:border-white focus:ring-0'
 								placeholder='50'
 								value={otherTip === 0 ? '' : otherTip}
 								onChange={event => setOtherTip(Number(event.target.value))}
