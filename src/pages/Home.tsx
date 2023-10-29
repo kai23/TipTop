@@ -1,6 +1,6 @@
 
-import AutoGrowInput from 'components/AutogrowInput'
 import Bloc from 'components/Bloc'
+import Input from 'components/Input'
 import PillButton from 'components/PillButton'
 import { useEffect, useState } from 'react'
 
@@ -114,7 +114,7 @@ export default function GalleryPage() {
 					<div className='flex flex-col items-center justify-center'>
 						<div className='flex items-center'>
 							<span className='text-3xl text-white'>$</span>
-							<AutoGrowInput
+							<Input
 								price={price === 0 ? '' : `${price}`}
 								onPriceChange={setPrice}
 							/>

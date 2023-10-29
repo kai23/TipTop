@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
 
-interface AutogrowInputProperties {
+interface InputProperties {
     price: string;
     onPriceChange: (price: number) => void;
 }
 
-export default function AutogrowInput({
+export default function Input({
   price, onPriceChange
-}: AutogrowInputProperties) {
+}: InputProperties) {
     const inputReference = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
